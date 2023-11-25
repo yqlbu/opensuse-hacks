@@ -6,7 +6,7 @@ Reference: https://github.com/techprober/yubikey-reference
 # install depedencies
 sudo zypper install opensc usbutils libpcsclite1 pcsc-ccid gnupg pinentry libusb-compat-devel
 # install GUI client
-sudo pacman -S yubikey-manager
+sudo zypper install yubikey-manager
 # enable pcscd at boot
 sudo systemctl enable pcscd --now
 # check key status
