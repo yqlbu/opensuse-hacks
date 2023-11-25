@@ -10,5 +10,5 @@ sudo zypper install yubikey-manager
 # enable pcscd at boot
 sudo systemctl enable pcscd --now
 # check key status
-ykman info
+sudo ykman info
 ```
