@@ -38,4 +38,5 @@ sudo systemctl restart pcscd
 
 # check key status
 ykman info
+gpg --card-status
 ```
