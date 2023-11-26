@@ -29,5 +29,6 @@ PCSCD_ARGS=--disable-polkit
 sudo systemctl restart pcscd
 # check key status
 ykman info
+pcsc_scan -r
 gpg --card-status
 ```
