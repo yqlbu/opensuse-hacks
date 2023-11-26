@@ -11,4 +11,5 @@ sudo zypper install yubikey-manager
 sudo systemctl enable pcscd --now
 # check key status
 sudo ykman info
+sudo opensc-tool --list-readers
 ```
