@@ -3,6 +3,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Update repository sources](#update-repository-sources)
+* [Setup firewall](#setup-firewall)
 * [OPI (OBS Package Installer)](#opi-obs-package-installer)
 * [Yubikey setup](#yubikey-setup)
     * [Installation](#installation)
@@ -11,6 +12,8 @@
 <!-- vim-markdown-toc -->
 
 ## Update repository sources
+
+Ref: https://mirrors.ustc.edu.cn/help/opensuse.html
 
 ```bash
 # disable current sources
@@ -23,6 +26,24 @@ sudo zypper ar -fcg 'https://mirrors.ustc.edu.cn/opensuse/update/tumbleweed' UST
 sudo zypper ref
 # upgrade
 sudo zypper dup
+```
+
+## Setup firewall
+
+Ref: https://www.linode.com/docs/guides/introduction-to-firewalld-on-centos/
+
+```bash
+# inspect current zone and rules
+sudo firewall-cmd --get-default-zone
+sudo firewall-cmd --zone=public --list-all
+# add custom firewall rules
+sudo firewall-cmd --zone=public --add-port=5598/tcp --permanent
+# reload
+sudo firewall-cmd reload
+# remove custom firewall rules
+sudo firewall-cmd --zone=public --remove-port=12345/tcp --permanent
+# enable firewalld at boot
+sudo systemctl enable firewalld
 ```
 
 ## OPI (OBS Package Installer)
