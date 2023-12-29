@@ -1,3 +1,36 @@
+## Table of Contents
+
+<!-- vim-markdown-toc GFM -->
+
+* [Update repository sources](#update-repository-sources)
+* [OPI (OBS Package Installer)](#opi-obs-package-installer)
+* [Yubikey setup](#yubikey-setup)
+    * [Installation](#installation)
+    * [Fix access issue](#fix-access-issue)
+
+<!-- vim-markdown-toc -->
+
+## Update repository sources
+
+```bash
+# disable current sources
+sudo zypper mr -da
+# update repositories
+sudo zypper ar -fcg 'https://mirrors.ustc.edu.cn/opensuse/tumbleweed/repo/oss' USTC:OSS
+sudo zypper ar -fcg 'https://mirrors.ustc.edu.cn/opensuse/tumbleweed/repo/non-oss' USTC:NON-OSS
+sudo zypper ar -fcg 'https://mirrors.ustc.edu.cn/opensuse/update/tumbleweed' USTC:UPDATE
+# refresh
+sudo zypper ref
+# upgrade
+sudo zypper dup
+```
+
+## OPI (OBS Package Installer)
+
+```sudo
+sudo zypper install opi
+```
+
 ## Yubikey setup
 
 Reference: https://github.com/techprober/yubikey-reference
@@ -6,7 +39,7 @@ Reference: https://github.com/techprober/yubikey-reference
 
 ```bash
 # install depedencies
-sudo zypper install pcsc-lite pcsc-ccid perl-pcsc pcsc-tools opensc usbutils gnupg pinentry libusb-compat-devel pam_u2f 
+sudo zypper install pcsc-lite pcsc-ccid perl-pcsc pcsc-tools opensc usbutils gnupg pinentry libusb-compat-devel pam_u2f
 # install GUI client
 sudo zypper install yubikey-manager
 # enable pcscd at boot
