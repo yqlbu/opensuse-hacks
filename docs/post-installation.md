@@ -54,7 +54,9 @@ sudo zypper install opi
 
 ## Yubikey setup
 
-Reference: https://github.com/techprober/yubikey-reference
+Reference: <https://github.com/techprober/yubikey-reference>
+
+Import keys: <https://github.com/techprober/yubikey-reference/blob/master/docs/import-from-yubikey.md>
 
 ### Installation
 
@@ -68,6 +70,8 @@ sudo systemctl enable pcscd --now
 # check key status
 sudo ykman info
 sudo opensc-tool --list-readers
+# install age-plugin-yubikey
+nix-env -iA nixpkgs.age-plugin-yubikey
 ```
 
 ### Fix access issue
